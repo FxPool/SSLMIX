@@ -3,7 +3,7 @@
 # github: https://github.com/FxPool
 
 # 配置变量
-shell_version='1.0.6'
+shell_version='1.0.7'
 installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
@@ -61,7 +61,7 @@ install() {
   fi
   cd $AppFileName
   setsid ./$sofname &
-  auto_run_start()
+  auto_run_start
   echo '启动成功'
 }
 
