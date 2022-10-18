@@ -3,6 +3,8 @@
 # github: https://github.com/FxPool
 
 # 配置变量
+shell_version='1.0.0'
+installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
 AppName='ssmixlinux.tar.gz'
@@ -22,6 +24,7 @@ killProcess() {
         kill -9 $i
     done
 }
+
 #安装
 install() {
   wget $UrlHost/$ProjectName/main/$AppName
@@ -31,28 +34,35 @@ install() {
   setsid ./$sofname &
   echo '启动成功'
 }
+
 #更新
-update(){
+update() {
   wget $UrlHost/$ProjectName/main/$AppName
   killProcess
-  start()
+  cd AppFileName
+  setsid ./$sofname &
+  echo '启动成功'
 }
+
 #卸载
 uninstall(){
   killProcess
   rm -rf AppFileName
 }
+
 #启动
 start(){
   cd AppFileName
   setsid ./$sofname &
   echo '启动成功'
 }
+
 #停止
 stop(){
   killProcess
   echo '停止成功'
 }
+
 #开机启动
 auto_run_start(){
    echo "#!/bin/bash 
@@ -76,10 +86,18 @@ auto_run_stop(){
   echo '开机启动已经关闭'
 }
 
+check_install() {
+    if [ ! -f "$installfolder" ]; then
+        echo -e "             ${red}<<没有安装>>"
+    else
+        echo -e "             ${green}<<已经安装>>"
+    fi
+}
+
 show_menu() {
     clear
     check_install
-    echo -e "
+    echo -e "shell_version"  
      ${green}0.${plain} 退出
      ${green}1.${plain} 安装
      ${green}2.${plain} 更新
