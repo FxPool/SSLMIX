@@ -3,7 +3,7 @@
 # github: https://github.com/FxPool
 
 # 配置变量
-shell_version='1.1.3'
+shell_version='1.1.4'
 installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
@@ -102,6 +102,7 @@ auto_run_start(){
     return
    fi
    crontab /root/$AppFileName/crontab_auto
+   echo "crontab 2"
    crontab -l
    echo '开机启动设置成功'
 }
@@ -117,6 +118,7 @@ auto_run_stop(){
     return
     fi
     crontab /root/$AppFileName/crontab_auto
+    echo "crontab 2"
     crontab -l
     echo '开机启动关闭设置成功'
 }
