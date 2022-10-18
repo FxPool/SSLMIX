@@ -3,7 +3,7 @@
 # github: https://github.com/FxPool
 
 # 配置变量
-shell_version='1.0.0'
+shell_version='1.0.1'
 installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
@@ -97,7 +97,7 @@ check_install() {
 show_menu() {
     clear
     check_install
-    echo -e "shell_version"  
+    echo -e "$shell_version  
      ${green}0.${plain} 退出
      ${green}1.${plain} 安装
      ${green}2.${plain} 更新
@@ -108,7 +108,6 @@ show_menu() {
      ${green}6.${plain} 关闭开机启动
    "
     echo && read -p "请输入选择 [0-7]: " num
-
     case "${num}" in
     0)
         exit 0
