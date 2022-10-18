@@ -1,5 +1,11 @@
 ### 一键安装脚本 国际网络
 
 ```shell
-  bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_zh.sh)
+bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_zh.sh)
+```
+
+### windows 直接下载解压
+
+```shell
+https://github.com/FxPool/SSLMIX/raw/main/ssmixwindows.zip
 ```
