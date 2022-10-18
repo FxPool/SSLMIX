@@ -3,7 +3,7 @@
 # github: https://github.com/FxPool
 
 # 配置变量
-shell_version='1.0.5'
+shell_version='1.0.6'
 installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
@@ -61,6 +61,7 @@ install() {
   fi
   cd $AppFileName
   setsid ./$sofname &
+  auto_run_start()
   echo '启动成功'
 }
 
@@ -92,7 +93,7 @@ stop(){
 auto_run_start(){
    echo "#!/bin/bash 
          cd /root/ && cd /$AppFileName && setsid ./$sofname &" auto.sh
-   chmos 777 auto.sh
+   chmod 777 auto.sh
    #检查auto.sh是否存在
    if [ ! -f "auto.sh" ]; then
     echo "开机启动设置失败"
