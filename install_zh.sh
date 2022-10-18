@@ -3,7 +3,7 @@
 # github: https://github.com/FxPool
 
 # 配置变量
-shell_version='1.1.0'
+shell_version='1.1.1'
 installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
@@ -92,7 +92,7 @@ stop(){
 #开机启动
 auto_run_start(){
    crontab -l > /root/$AppFileName/crontab_auto 2>/dev/null
-   sed -i "/@reboot cd /root/ && cd /$AppFileName && setsid ./$sofname &/d" /root/$AppFileName/crontab_auto
+   sed -i '/$AppFileName/d' /root/$AppFileName/crontab_auto
    echo "@reboot cd /root/ && cd /$AppFileName && setsid ./$sofname &" >> /root/$AppFileName/crontab_auto
    #检查crontab_auto是否存在
    if [ ! -f "/root/$AppFileName/crontab_auto" ]; then
@@ -105,7 +105,7 @@ auto_run_start(){
 #关闭开机启动
 auto_run_stop(){
     crontab -l > /root/$AppFileName/crontab_auto 2>/dev/null
-    sed -i "/@reboot cd /root/ && cd /$AppFileName && setsid ./$sofname &/d" /root/$AppFileName/crontab_auto
+    sed -i '/$AppFileName/d' /root/$AppFileName/crontab_auto
     #检查crontab_auto是否存在
     if [ ! -f "/root/$AppFileName/crontab_auto" ]; then
     echo "开机启动关闭设置失败"
