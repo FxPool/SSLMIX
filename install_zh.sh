@@ -16,6 +16,13 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
 
+#检查当前下载的文件收有记录
+if [ ! -f "$AppName" ]; then
+    echo "\n"
+else
+    rm $AppName
+fi
+
 #停止主程序
 killProcess() {
     PROCESS=$(ps -ef | grep $sofname|grep -v grep | grep -v PPID | awk '{ print $2}')
