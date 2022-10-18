@@ -3,7 +3,7 @@
 # github: https://github.com/FxPool
 
 # 配置变量
-shell_version='1.0.4'
+shell_version='1.0.5'
 installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
@@ -48,7 +48,7 @@ install() {
    return
   fi
   wget $UrlHost/$ProjectName/main/$AppName
-  if [ ! -f "$AppNam" ]; then
+  if [ ! -f "$AppName" ]; then
     echo '安装失败，下载文件失败'
     rm $AppName
     return
