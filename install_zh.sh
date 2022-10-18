@@ -3,7 +3,7 @@
 # github: https://github.com/FxPool
 
 # 配置变量
-shell_version='1.1.1'
+shell_version='1.1.2'
 installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
