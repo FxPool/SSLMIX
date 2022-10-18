@@ -43,7 +43,7 @@ checkProcess() {
 
 # 安装
 install() {
-  if [ ! -f "$installfolder" ]; then
+  if [ -f "$installfolder" ]; then
    echo '已经安装不要重复安装'
    return
   fi
