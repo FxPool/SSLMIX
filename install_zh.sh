@@ -1,1 +1,124 @@
-new
+#!/bin/bash
+# Author: FxPool
+# github: https://github.com/FxPool
+
+# 配置变量
+sofname='running'
+ProjectName='SSLMIX'
+AppName='ssmixlinux.tar.gz'
+AppFileName='ssmixlinux'
+UrlHost='https://raw.githubusercontent.com/FxPool'
+# 颜色
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+plain='\033[0m'
+
+#停止主程序
+killProcess() {
+    PROCESS=$(ps -ef | grep $sofname|grep -v grep | grep -v PPID | awk '{ print $2}')
+    for i in $PROCESS; do
+        echo "Kill the $1 process [ $i ]"
+        kill -9 $i
+    done
+}
+#安装
+install() {
+  wget $UrlHost/$ProjectName/main/$AppName
+  tar -zxvf AppName
+  rm AppName
+  cd AppFileName
+  setsid ./$sofname &
+  echo '启动成功'
+}
+#更新
+update(){
+  wget $UrlHost/$ProjectName/main/$AppName
+  killProcess
+  start()
+}
+#卸载
+uninstall(){
+  killProcess
+  rm -rf AppFileName
+}
+#启动
+start(){
+  cd AppFileName
+  setsid ./$sofname &
+  echo '启动成功'
+}
+#停止
+stop(){
+  killProcess
+  echo '停止成功'
+}
+#开机启动
+auto_run_start(){
+   echo "#!/bin/bash 
+         cd /root/ && cd /$AppFileName && setsid ./$sofname &" auto.sh
+   chmos 777 auto.sh
+   #检查auto.sh是否存在
+   if [ ! -f "auto.sh" ]; then
+    echo "开机启动设置失败"
+    return
+   fi
+   crontab @reboot sleep 5; /root/$AppFileName/auto.sh
+   echo '开机启动设置成功'
+}
+#关闭开机启动
+auto_run_stop(){
+ if [ ! -f "auto.sh" ]; then
+    echo "开机启动关闭失败，文件不存在"
+    return
+ fi
+  rm /$AppFileName/auto.sh
+  echo '开机启动已经关闭'
+}
+
+show_menu() {
+    clear
+    check_install
+    echo -e "
+     ${green}0.${plain} 退出
+     ${green}1.${plain} 安装
+     ${green}2.${plain} 更新
+     ${green}3.${plain} 卸载
+     ${green}4.${plain} 启动
+     ${green}5.${plain} 停止
+     ${green}6.${plain} 开启开机启动
+     ${green}6.${plain} 关闭开机启动
+   "
+    echo && read -p "请输入选择 [0-7]: " num
+
+    case "${num}" in
+    0)
+        exit 0
+        ;;
+    1)
+        install
+        ;;
+    2)
+        update
+        ;;
+    3)
+        uninstall
+        ;;
+    4)
+        start
+        ;;
+    5)
+        stop
+        ;;
+    6)
+        auto_run_start
+        ;;
+    7)
+        auto_run_stop
+        ;;
+    *)
+        echo -e "${red}请输入正确的数字 [0-7]${plain}"
+        ;;
+    esac
+}
+show_menu
