@@ -24,9 +24,22 @@ killProcess() {
         kill -9 $i
     done
 }
+# 检查程序
+checkProcess() {
+    COUNT=$(ps -ef | grep $1 | grep -v "grep" | wc -l)
+    if [ $COUNT -eq 0 ]; then
+        return 0
+    else
+        return 1
+    fi
+}
 
-#安装
+# 安装
 install() {
+  if [ ! -f "$installfolder" ]; then
+   echo '已经安装不要重复安装'
+   return
+  fi
   wget $UrlHost/$ProjectName/main/$AppName
   if [ ! -f "$AppNam" ]; then
     echo '安装失败，下载文件失败'
@@ -52,6 +65,11 @@ uninstall(){
 
 #启动
 start(){
+  checkProcess "$sofname"
+  if [ $? -eq 1 ]; then
+    echo '已经启动不要重复启动'
+    return
+  fi      
   cd $AppFileName
   setsid ./$sofname &
   echo '启动成功'
