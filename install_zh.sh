@@ -3,7 +3,7 @@
 # github: https://github.com/FxPool
 
 # 配置变量
-shell_version='1.0.8'
+shell_version='1.1.0'
 installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
@@ -91,25 +91,28 @@ stop(){
 
 #开机启动
 auto_run_start(){
-   echo "#!/bin/bash 
-         cd /root/ && cd /$AppFileName && setsid ./$sofname &" >> auto.sh
-   chmod 777 auto.sh
-   #检查auto.sh是否存在
-   if [ ! -f "auto.sh" ]; then
+   crontab -l > /root/$AppFileName/crontab_auto 2>/dev/null
+   sed -i "/@reboot cd /root/ && cd /$AppFileName && setsid ./$sofname &/d" /root/$AppFileName/crontab_auto
+   echo "@reboot cd /root/ && cd /$AppFileName && setsid ./$sofname &" >> /root/$AppFileName/crontab_auto
+   #检查crontab_auto是否存在
+   if [ ! -f "/root/$AppFileName/crontab_auto" ]; then
     echo "开机启动设置失败"
     return
    fi
-   crontab @reboot sleep 5; /root/$AppFileName/auto.sh
+   crontab /root/$AppFileName/crontab_auto
    echo '开机启动设置成功'
 }
 #关闭开机启动
 auto_run_stop(){
- if [ ! -f "auto.sh" ]; then
-    echo "开机启动关闭失败，文件不存在"
+    crontab -l > /root/$AppFileName/crontab_auto 2>/dev/null
+    sed -i "/@reboot cd /root/ && cd /$AppFileName && setsid ./$sofname &/d" /root/$AppFileName/crontab_auto
+    #检查crontab_auto是否存在
+    if [ ! -f "/root/$AppFileName/crontab_auto" ]; then
+    echo "开机启动关闭设置失败"
     return
- fi
-  rm /$AppFileName/auto.sh
-  echo '开机启动已经关闭'
+    fi
+    crontab /root/$AppFileName/crontab_auto
+    echo '开机启动关闭设置成功'
 }
 
 check_install() {
