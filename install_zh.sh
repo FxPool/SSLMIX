@@ -7,7 +7,7 @@ setDownloadUrl=$1
 setAppName=$2
 
 # 配置变量
-shell_version='2.1.0'
+shell_version='2.3.0'
 installfolder='/root/$setAppName/running'
 sofname='running'
 AppFileName=$setAppName
@@ -205,7 +205,7 @@ show_menu() {
     clear
     check_install
     echo -e "
-     脚本版本: $shell_version
+     脚本版本: $shell_version 平台: $setAppName 
      ${green}0.${plain} 退出
      ${green}1.${plain} 安装
      ${green}2.${plain} 更新
