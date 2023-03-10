@@ -15,7 +15,7 @@ AppFileName='ssmixlinux'
 UrlHost='https://raw.githubusercontent.com/FxPool'
 # 下载地址
 # downloadUrl=$UrlHost/$ProjectName/main/$AppName
-downloadUrl=$setDownloadUrl
+downloadUrl=$setDownloadUrl/$AppName
 
 # 颜色
 red='\033[0;31m'
