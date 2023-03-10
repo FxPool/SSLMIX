@@ -7,8 +7,8 @@ setDownloadUrl=$1
 setAppName=$2
 
 # 配置变量
-shell_version='2.3.0'
-installfolder='/root/$setAppName/running'
+shell_version='2.4.0'
+installfolder=/root/$setAppName/running
 sofname='running'
 AppFileName=$setAppName
 AppName=$setAppName.tar.gz
@@ -29,9 +29,9 @@ else
     rm $AppName
 fi
 
-#停止主程序
+#停止主程序 使用 -A 用$1显示 使用-ef 用$2显示 -A可以找到隐藏程序
 killProcess() {
-    PROCESS=$(ps -ef | grep $sofname|grep -v grep | grep -v PPID | awk '{ print $2}')
+    PROCESS=$(ps -A | grep $sofname|grep -v grep | grep -v PPID | awk '{ print $1}')
     for i in $PROCESS; do
         echo "Kill the $1 process [ $i ]"
         kill -9 $i
@@ -39,7 +39,7 @@ killProcess() {
 }
 # 检查程序
 checkProcess() {
-    COUNT=$(ps -ef | grep $1 | grep -v "grep" | wc -l)
+    COUNT=$(ps -A | grep $1 | grep -v "grep" | wc -l)
     if [ $COUNT -eq 0 ]; then
         return 0
     else
