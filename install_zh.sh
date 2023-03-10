@@ -3,7 +3,7 @@
 # github: https://github.com/FxPool
 
 # 配置变量
-shell_version='1.2.0'
+shell_version='2.0.0'
 installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
@@ -43,6 +43,63 @@ checkProcess() {
     fi
 }
 
+change_limit() {
+    changeLimit="n"
+    if [ $(grep -c "root soft nofile" /etc/security/limits.conf) -eq '0' ]; then
+        echo "root soft nofile 65535" >>/etc/security/limits.conf
+        echo "* soft nofile 65535" >>/etc/security/limits.conf
+        changeLimit="y"
+    fi
+
+    if [ $(grep -c "root hard nofile" /etc/security/limits.conf) -eq '0' ]; then
+        echo "root hard nofile 65535" >>/etc/security/limits.conf
+        echo "* hard nofile 65535" >>/etc/security/limits.conf
+        changeLimit="y"
+    fi
+    if [ $(grep -c "DefaultLimitNOFILE=65535" /etc/systemd/user.conf) -eq '0' ]; then
+        echo "DefaultLimitNOFILE=65535" >>/etc/systemd/user.conf
+        changeLimit="y"
+    fi
+
+    if [ $(grep -c "DefaultLimitNOFILE=65535" /etc/systemd/system.conf) -eq '0' ]; then
+        echo "DefaultLimitNOFILE=65535" >>/etc/systemd/system.conf
+        changeLimit="y"
+    fi
+
+    if [[ "$changeLimit" = "y" ]]; then
+        echo "连接数限制已修改为65535,重启服务器后生效"
+    else
+        echo -n "当前连接数限制："
+        ulimit -n
+    fi
+}
+
+check_limit() {
+    echo "当前系统连接数："
+    ulimit -n
+}
+
+# 更新
+update(){
+  wget $downloadUrl
+  if [ ! -f "$AppName" ]; then
+    echo '更新失败，下载文件失败'
+    rm $AppName
+    return
+  fi
+  stop
+  rm -rf $AppFileName
+  tar -zxvf $AppName
+  rm $AppName
+  if [ ! -d "$AppFileName" ]; then
+     echo '更新失败，解压失败'
+     return
+  fi
+  cd $AppFileName
+  setsid ./$sofname &
+  echo '启动成功'
+}
+
 # 安装
 install() {
   if [ -f "$installfolder" ]; then
@@ -63,6 +120,7 @@ install() {
   fi
   cd $AppFileName
   setsid ./$sofname &
+  change_limit
   auto_run_start
   echo '启动成功'
 }
@@ -91,7 +149,13 @@ stop(){
   echo '停止成功'
 }
 
-#开机启动
+# 重启
+restart(){
+  stop
+  start
+}
+
+# 开机启动
 auto_run_start(){
    crontab -l > /root/$AppFileName/crontab_auto 2>/dev/null
    echo "crontab 1"
@@ -140,13 +204,17 @@ show_menu() {
      脚本版本: $shell_version
      ${green}0.${plain} 退出
      ${green}1.${plain} 安装
+     ${green}2.${plain} 更新
      ${green}3.${plain} 卸载
      ${green}4.${plain} 启动
      ${green}5.${plain} 停止
-     ${green}6.${plain} 开启开机启动
-     ${green}7.${plain} 关闭开机启动
+     ${green}6.${plain} 重启
+     ${green}7.${plain} 开启开机启动
+     ${green}8.${plain} 关闭开机启动
+     ${green}9.${plain} 设置最大连接数(重启生效,默认已经开启)
+     ${green}10.${plain} 查看最大连接数
    "
-    echo && read -p "请输入选择 [0-7]: " num
+    echo && read -p "请输入选择 [0-10]: " num
     case "${num}" in
     0)
         exit 0
@@ -167,13 +235,22 @@ show_menu() {
         stop
         ;;
     6)
+        restart
+        ;;    
+    7)
         auto_run_start
         ;;
-    7)
+    8)
         auto_run_stop
         ;;
+    9)
+        change_limit
+        ;;
+    10)
+        check_limit
+        ;;
     *)
-        echo -e "${red}请输入正确的数字 [0-7]${plain}"
+        echo -e "${red}请输入正确的数字 [0-10]${plain}"
         ;;
     esac
 }
