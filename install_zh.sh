@@ -7,13 +7,11 @@ setDownloadUrl=$1
 setAppName=$2
 
 # 配置变量
-shell_version='2.0.0'
-installfolder='/root/ssmixlinux/running'
+shell_version='2.1.0'
+installfolder='/root/$setAppName/running'
 sofname='running'
-ProjectName='SSLMIX'
-AppFileName='ssmixlinux'
+AppFileName=$setAppName
 AppName=$setAppName.tar.gz
-UrlHost='https://raw.githubusercontent.com/FxPool'
 
 # 下载地址
 downloadUrl=$setDownloadUrl/$AppName
