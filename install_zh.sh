@@ -2,19 +2,20 @@
 # Author: FxPool
 # github: https://github.com/FxPool
 
-# 设置url
+# 设置变量
 setDownloadUrl=$1
+setAppName=$2
 
 # 配置变量
 shell_version='2.0.0'
 installfolder='/root/ssmixlinux/running'
 sofname='running'
 ProjectName='SSLMIX'
-AppName='ssmixlinux.tar.gz'
 AppFileName='ssmixlinux'
+AppName=$setAppName.tar.gz
 UrlHost='https://raw.githubusercontent.com/FxPool'
+
 # 下载地址
-# downloadUrl=$UrlHost/$ProjectName/main/$AppName
 downloadUrl=$setDownloadUrl/$AppName
 
 # 颜色
