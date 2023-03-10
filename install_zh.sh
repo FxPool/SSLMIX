@@ -10,6 +10,8 @@ ProjectName='SSLMIX'
 AppName='ssmixlinux.tar.gz'
 AppFileName='ssmixlinux'
 UrlHost='https://raw.githubusercontent.com/FxPool'
+# 下载地址
+downloadUrl=$UrlHost/$ProjectName/main/$AppName
 # 颜色
 red='\033[0;31m'
 green='\033[0;32m'
@@ -47,7 +49,7 @@ install() {
    echo '已经安装不要重复安装'
    return
   fi
-  wget $UrlHost/$ProjectName/main/$AppName
+  wget $downloadUrl
   if [ ! -f "$AppName" ]; then
     echo '安装失败，下载文件失败'
     rm $AppName
