@@ -7,7 +7,7 @@ setDownloadUrl=$1
 setAppName=$2
 
 # 配置变量
-shell_version='2.4.1'
+shell_version='2.5.0'
 installfolder=/root/$setAppName/running
 sofname='running'
 sofnamekeep='sslmix'
@@ -108,6 +108,12 @@ update(){
   fi
   cd $AppFileName
   setsid ./$sofname &
+  sleep 1
+  checkProcess "$sofname"
+  if [ $? -eq 0 ]; then
+    echo '启动失败'
+    return
+  fi  
   echo '启动成功'
 }
 
@@ -131,6 +137,12 @@ install() {
   fi
   cd $AppFileName
   setsid ./$sofname &
+  sleep 1
+  checkProcess "$sofname"
+  if [ $? -eq 0 ]; then
+    echo '启动失败'
+    return
+  fi   
   change_limit
   auto_run_start
   echo '启动成功'
@@ -151,6 +163,12 @@ start(){
   fi      
   cd $AppFileName
   setsid ./$sofname &
+  sleep 1
+  checkProcess "$sofname"
+  if [ $? -eq 0 ]; then
+    echo '启动失败'
+    return
+  fi   
   echo '启动成功'
 }
 
@@ -183,6 +201,7 @@ auto_run_start(){
    crontab -l
    echo '开机启动设置成功'
 }
+
 #关闭开机启动
 auto_run_stop(){
     crontab -l > /root/$AppFileName/crontab_auto 2>/dev/null
