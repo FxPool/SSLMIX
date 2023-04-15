@@ -1,3 +1,6 @@
+[安装脚本]:https://github.com/FxPool/SSLMIX/raw/main/sslmix_cus_install.sh
+[安装包-amd]:https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux.tar.gz
+[安装包-arm]:https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux32armv7l.tar.gz
 ##  国际网络
 ### 一键安装脚本(linux amd64架构)
 
@@ -28,4 +31,16 @@ bash <(curl -s -L https://cdn.jsdelivr.net/gh/FxPool/SSLMIX/install_zh.sh) https
 
 ```shell
 https://github.com/FxPool/SSLMIX/raw/main/ssmixwindows.zip
+```
+
+
+### 自定义下载
+- 将[安装脚本]下载然后上传到你的服务器上
+- 将[安装包-amd]或[安装包-arm]下载然后上传到你的服务器上
+```shell
+# 替换成你的服务器地址
+# amd
+bash <(curl -s -L 你的脚本url) 你的软件安装包url ssmixlinux
+# arm
+bash <(curl -s -L 你的脚本url) 你的软件安装包url ssmixlinux32armv7l
 ```
