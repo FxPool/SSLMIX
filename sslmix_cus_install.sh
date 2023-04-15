@@ -231,7 +231,7 @@ show_menu() {
     clear
     check_install
     echo -e "
-    ---------------蓝翔之光加密代理程序-----------------
+    ---------------隋代加密程序-----------------
      脚本版本: $shell_version 平台: $setAppName 
      ${green}0.${plain} 退出
      ${green}1.${plain} 安装
