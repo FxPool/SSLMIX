@@ -6,7 +6,7 @@
 ### 一键安装脚本(linux openwrt)
 
 ```shell
-bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/openwrt.sh) https://raw.githubusercontent.com/FxPool/SSLMIX/main ssmixlinux
+bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/openwrt.sh) https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux.tar.gz ssmixlinux
 ```
 
 ### 一键安装脚本(linux amd64架构)
