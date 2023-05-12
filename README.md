@@ -2,6 +2,13 @@
 [安装包-amd]:https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux.tar.gz
 [安装包-arm]:https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux32armv7l.tar.gz
 ##  国际网络
+
+### 一键安装脚本(linux openwrt)
+
+```shell
+bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/openwrt.sh) https://raw.githubusercontent.com/FxPool/SSLMIX/main ssmixlinux
+```
+
 ### 一键安装脚本(linux amd64架构)
 
 ```shell
