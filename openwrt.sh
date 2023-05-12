@@ -3,18 +3,15 @@
 # github: https://github.com/FxPool
 
 # 设置变量
-setDownloadUrl=$1
+downloadUrl=$1
 setAppName=$2
 
 # 配置变量
-shell_version='openwrtV1.0.2'
+shell_version='openwrtV1.0.3'
 installfolder=/root/$setAppName/running
 sofname='sslmix'
 AppFileName=$setAppName
 AppName=$setAppName.tar.gz
-
-# 下载地址
-downloadUrl=$setDownloadUrl/$AppName
 
 # 颜色
 red='\033[0;31m'
