@@ -44,7 +44,7 @@ killProcess() {
 
 # 检查程序
 checkProcess() {
-    COUNT=$(ps -A | grep $1 | grep -v "grep" | wc -l)
+    COUNT=$(ps -ef | grep $1 | grep -v "grep" | wc -l)
     if [ $COUNT -eq 0 ]; then
         return 0
     else
