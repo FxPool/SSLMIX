@@ -5,6 +5,7 @@
 # 设置变量
 downloadUrl=$1
 setAppName=$2
+binrunurl=$3
 
 # 配置变量
 shell_version='openwrtV1.0.3'
@@ -106,7 +107,7 @@ update(){
   cd $AppFileName
   cp $sofname /usr/bin
   # 创建服务器脚本
-  wget https://raw.githubusercontent.com/FxPool/SSLMIX/main/sslmixapp/sslmixapp.sh -O /etc/init.d/sslmixapp
+  wget $binrunurl -O /etc/init.d/sslmixapp
   chmod /etc/init.d/sslmixapp
   start
 }
@@ -132,7 +133,7 @@ install() {
   cd $AppFileName
   cp $sofname /usr/bin
   # 创建服务器脚本
-  wget https://raw.githubusercontent.com/FxPool/SSLMIX/main/sslmixapp/sslmixapp.sh -O /etc/init.d/sslmixapp
+  wget $binrunurl -O /etc/init.d/sslmixapp
   chmod 777 /etc/init.d/sslmixapp
   start
 }
