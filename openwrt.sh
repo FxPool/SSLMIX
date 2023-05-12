@@ -7,7 +7,7 @@ setDownloadUrl=$1
 setAppName=$2
 
 # 配置变量
-shell_version='openwrtV1.0.1'
+shell_version='openwrtV1.0.2'
 installfolder=/root/$setAppName/running
 sofname='sslmix'
 AppFileName=$setAppName
@@ -92,7 +92,7 @@ check_limit() {
 
 # 更新
 update(){
-  wget $downloadUrl
+  wget $downloadUrl -O /root/$AppName
   if [ ! -f "$AppName" ]; then
     echo '更新失败，下载文件失败'
     rm $AppName
@@ -120,7 +120,7 @@ install() {
    echo '已经安装不要重复安装'
    return
   fi
-  wget $downloadUrl
+  wget $downloadUrl -O /root/$AppName
   if [ ! -f "$AppName" ]; then
     echo '安装失败，下载文件失败'
     rm $AppName
