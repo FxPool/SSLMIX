@@ -1,6 +1,8 @@
 [安装脚本]:https://github.com/FxPool/SSLMIX/raw/main/sslmix_cus_install.sh
 [安装包-amd]:https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux.tar.gz
 [安装包-arm]:https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux32armv7l.tar.gz
+[无界面-安装包-amd]:https://github.com/FxPool/SSLMIX/raw/main/noweb/ssmixlinux.tar.gz
+[无界面-安装包-arm]:https://github.com/FxPool/SSLMIX/raw/main/noweb/ssmixlinux32armv7l.tar.gz
 ##  国际网络
 
 ### 一键安装脚本(linux openwrt)
@@ -51,3 +53,6 @@ bash <(curl -s -L 你的脚本url) 你的软件安装包url ssmixlinux
 # arm
 bash <(curl -s -L 你的脚本url) 你的软件安装包url ssmixlinux32armv7l
 ```
+### 无web界面安装包下载
+- [无界面-安装包-amd]
+- [无界面-安装包-arm]
