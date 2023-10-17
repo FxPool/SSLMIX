@@ -23,19 +23,6 @@ bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_z
 bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_zh.sh) https://raw.githubusercontent.com/FxPool/SSLMIX/main ssmixlinux32armv7l
 ```
 
-##  国内网络
-### 一键安装脚本(linux amd64架构) 
-
-```shell
-bash <(curl -s -L https://gitee.com/fxpool/sslmix/raw/master/sslmix_cus_install.sh) https://gitee.com/fxpool/sslmix/raw/master/ssmixlinux.tar.gz ssmixlinux
-```
-
-### 一键安装脚本(linux arm32 v7 (armv7l)架构)
-
-```shell
-bash <(curl -s -L https://gitee.com/fxpool/sslmix/raw/master/sslmix_cus_install.sh) https://gitee.com/fxpool/sslmix/raw/master/ssmixlinux32armv7l.tar.gz ssmixlinux32armv7l
-```
-
 ### windows 直接下载解压
 
 ```shell
