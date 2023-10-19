@@ -46,7 +46,7 @@ https://github.com/FxPool/SSLMIX/raw/main/ssmixwindows.zip
 ```
 
 
-### 自定义下载
+### 自定义下载（当github无法连接时你可以把执行程序和脚本下载到你服务器上实现国内的安装）
 - 将[安装脚本]下载然后上传到你的服务器上
 - 将[安装包-amd]或[安装包-arm]下载然后上传到你的服务器上
 ```shell
