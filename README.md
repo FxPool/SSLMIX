@@ -20,20 +20,33 @@ tar -zxvf ssmixlinux32armv7l.tar.gz
 cd ssmixlinux32armv7l
 ./running
 ```
-##  脚本安装（已经实现开机启动，启动不了请卸载后手动下载安装自己实现开机启动）
-### 一键安装脚本(linux openwrt)
+##  一键脚本安装（已经实现开机启动，启动不了请卸载后手动下载安装自己实现开机启动）
+
+#### 大陆线路
+
+* linux amd64架构
+```shell
+bash <(curl -s -L https://cdn.jsdelivr.net/gh/FxPool/SSLMIX/install_zh.sh) https://cdn.jsdelivr.net/gh/FxPool/SSLMIX@main ssmixlinux
+```
+* linux arm32 v7 (armv7l)架构
+```shell
+bash <(curl -s -L https://cdn.jsdelivr.net/gh/FxPool/SSLMIX/install_zh.sh) https://cdn.jsdelivr.net/gh/FxPool/SSLMIX@main ssmixlinux32armv7l
+```
+
+#### 国际线路
+* linux openwrt
 
 ```shell
 bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/openwrt.sh) https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux.tar.gz ssmixlinux https://raw.githubusercontent.com/FxPool/SSLMIX/main/sslmixapp/sslmixapp.sh
 ```
 
-### 一键安装脚本(linux amd64架构)
+* linux amd64架构
 
 ```shell
 bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_zh.sh) https://raw.githubusercontent.com/FxPool/SSLMIX/main ssmixlinux
 ```
 
-### 一键安装脚本(linux arm32 v7 (armv7l)架构)
+* linux arm32 v7 (armv7l)架构
 
 ```shell
 bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_zh.sh) https://raw.githubusercontent.com/FxPool/SSLMIX/main ssmixlinux32armv7l
