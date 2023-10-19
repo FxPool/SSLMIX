@@ -3,7 +3,7 @@
 [安装包-arm]:https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux32armv7l.tar.gz
 [无界面-安装包-amd]:https://github.com/FxPool/SSLMIX/raw/main/noweb/ssmixlinux.tar.gz
 [无界面-安装包-arm]:https://github.com/FxPool/SSLMIX/raw/main/noweb/ssmixlinux32armv7l.tar.gz
-##  手动下载安装
+##  手动下载安装(需要自己研究开机启动的方式)
 - 需要后台启动时执行 `setsid ./程序名 &`
 #### adm64架构的
 ```shell
@@ -19,7 +19,7 @@ tar -zxvf ssmixlinux32armv7l.tar.gz
 cd ssmixlinux32armv7l
 ./running
 ```
-
+##  脚本安装（已经实现开机启动，启动不了请卸载后手动下载安装自己实现开机启动）
 ### 一键安装脚本(linux openwrt)
 
 ```shell
