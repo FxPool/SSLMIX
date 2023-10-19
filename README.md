@@ -5,6 +5,7 @@
 [无界面-安装包-arm]:https://github.com/FxPool/SSLMIX/raw/main/noweb/ssmixlinux32armv7l.tar.gz
 ##  手动下载安装(需要自己研究开机启动的方式)
 - 需要后台启动时执行 `setsid ./程序名 &`
+- 不清楚CPU架构的，首先使用amd64架构不行在尝试arm32架构
 #### adm64架构的
 ```shell
 wget https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux.tar.gz
