@@ -8,7 +8,7 @@ binrunurl=$3
 
 # 配置变量
 setAppName='sslmix_openwrt_app'
-shell_version='openwrtV1.0.3'
+shell_version='openwrtV1.0.4'
 installfolder=/root/$setAppName/running
 sofname='sslmix'
 AppFileName=$setAppName
