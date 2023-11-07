@@ -7,9 +7,9 @@ downloadUrl=$1
 # 配置变量
 binrunurl='https://raw.githubusercontent.com/FxPool/SSLMIX/main/sslmixapp/openwrtapp.sh'
 setAppName='sslmix_openwrt_app'
-shell_version='openwrtV1.0.4'
+shell_version='openwrtV1.0.5'
 installfolder=/root/$setAppName/running
-sofname='sslmix'
+sofname='sslmix_openwrt_running'
 AppFileName=$setAppName
 AppName=$setAppName.tar.gz
 
@@ -97,14 +97,14 @@ update(){
   fi
   stop
   rm -rf $AppFileName
-  tar -zxvf $AppName
+  mkdir ./$AppFileName && tar -xzvf $AppName -C ./$AppFileName --strip-components 1
   rm $AppName
   if [ ! -d "$AppFileName" ]; then
      echo '更新失败，解压失败'
      return
   fi
-  cd $AppFileName
-  cp $sofname /usr/bin
+  mv /root/$AppFileName/running /root/$AppFileName/$sofname
+  chmod 777 /root/$AppFileName/$sofname
   # 创建服务器脚本
   wget $binrunurl -O /etc/init.d/sslmixapp
   chmod /etc/init.d/sslmixapp
@@ -123,14 +123,14 @@ install() {
     rm $AppName
     return
   fi
-  tar -zxvf $AppName
+  mkdir ./$AppFileName && tar -xzvf $AppName -C ./$AppFileName --strip-components 1
   rm $AppName
   if [ ! -d "$AppFileName" ]; then
      echo '安装失败，解压失败'
      return
   fi
-  cd $AppFileName
-  cp $sofname /usr/bin
+  mv /root/$AppFileName/running /root/$AppFileName/$sofname
+  chmod 777 /root/$AppFileName/$sofname
   # 创建服务器脚本
   wget $binrunurl -O /etc/init.d/sslmixapp
   chmod 777 /etc/init.d/sslmixapp
