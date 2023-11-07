@@ -7,8 +7,8 @@ downloadUrl=$1
 # 配置变量
 binrunurl='https://raw.githubusercontent.com/FxPool/SSLMIX/main/sslmixapp/openwrtapp.sh'
 setAppName='sslmix_openwrt_app'
-shell_version='openwrtV1.0.6'
-installfolder=/root/$setAppName/running
+shell_version='openwrtV1.0.7'
+installfolder=/root/$setAppName/sslmix_openwrt_running
 sofname='sslmix_openwrt_running'
 AppFileName=$setAppName
 AppName=$setAppName.tar.gz
@@ -34,7 +34,7 @@ killProcess() {
         kill -9 $i
     done
     
-    PROCESS=$(ps -A | grep running|grep -v grep | grep -v PPID | awk '{ print $1}')
+    PROCESS=$(ps -A | grep sslmix_openwrt_running|grep -v grep | grep -v PPID | awk '{ print $1}')
     for i in $PROCESS; do
         echo "Kill the $1 process [ $i ]"
         kill -9 $i
