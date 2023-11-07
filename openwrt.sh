@@ -7,7 +7,7 @@ downloadUrl=$1
 # 配置变量
 binrunurl='https://raw.githubusercontent.com/FxPool/SSLMIX/main/sslmixapp/openwrtapp.sh'
 setAppName='sslmix_openwrt_app'
-shell_version='openwrtV1.0.5'
+shell_version='openwrtV1.0.6'
 installfolder=/root/$setAppName/running
 sofname='sslmix_openwrt_running'
 AppFileName=$setAppName
@@ -149,7 +149,8 @@ start(){
   if [ $? -eq 1 ]; then
     echo '已经启动不要重复启动'
     return
-  fi      
+  fi
+  auto_run_start
   /etc/init.d/sslmixapp start
   sleep 1
   checkProcess "$sofname"
