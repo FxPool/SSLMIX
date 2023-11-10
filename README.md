@@ -66,6 +66,11 @@ bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/openwrt.s
 ```shell
 bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/openwrt.sh) https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux32armv7l.tar.gz
 ```
+* openwrt arm64 v8 (armv8l)架构
+
+```shell
+bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/openwrt.sh) https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux64armv8l.tar.gz
+```
 
 ### windows 直接下载解压
 
