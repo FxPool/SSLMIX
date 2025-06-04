@@ -22,25 +22,6 @@ cd ssmixlinux32armv7l
 ```
 ##  一键脚本安装（已经实现开机启动，启动不了请卸载后手动下载安装自己实现开机启动）
 
-#### 大陆线路
-
-* linux amd64架构
-```shell
-bash <(curl -s -L https://cdn.jsdelivr.net/gh/FxPool/SSLMIX/install_zh.sh) https://cdn.jsdelivr.net/gh/FxPool/SSLMIX@main ssmixlinux
-```
-* linux arm32 v7 (armv7l)架构
-```shell
-bash <(curl -s -L https://cdn.jsdelivr.net/gh/FxPool/SSLMIX/install_zh.sh) https://cdn.jsdelivr.net/gh/FxPool/SSLMIX@main ssmixlinux32armv7l
-```
-* openwrt amd64架构
-```shell
-bash <(curl -s -L https://cdn.jsdelivr.net/gh/FxPool/SSLMIX/openwrt.sh) https://cdn.jsdelivr.net/gh/FxPool/SSLMIX@main/ssmixlinux.tar.gz
-```
-* openwrt arm32 v7 (armv7l)架构
-```shell
-bash <(curl -s -L https://cdn.jsdelivr.net/gh/FxPool/SSLMIX/openwrt.sh) https://cdn.jsdelivr.net/gh/FxPool/SSLMIX@main/ssmixlinux32armv7l.tar.gz
-```
-
 #### 国际线路
 
 * linux amd64架构
@@ -54,30 +35,6 @@ bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_z
 ```shell
 bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_zh.sh) https://raw.githubusercontent.com/FxPool/SSLMIX/main ssmixlinux32armv7l
 ```
-
-* openwrt amd64架构
-
-```shell
-bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/openwrt.sh) https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux.tar.gz
-```
-
-* openwrt arm32 v7 (armv7l)架构
-
-```shell
-bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/openwrt.sh) https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux32armv7l.tar.gz
-```
-* openwrt arm64 v8 (armv8l)架构
-
-```shell
-bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/openwrt.sh) https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux64armv8l.tar.gz
-```
-
-### windows 直接下载解压
-
-```shell
-https://github.com/FxPool/SSLMIX/raw/main/ssmixwindows.zip
-```
-
 
 ### 自定义下载（当github无法连接时你可以把执行程序和脚本下载到你服务器上实现国内的安装）
 - 将[安装脚本]下载然后上传到你的服务器上
