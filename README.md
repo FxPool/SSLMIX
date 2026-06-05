@@ -36,6 +36,12 @@ bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_z
 bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_zh.sh) https://raw.githubusercontent.com/FxPool/SSLMIX/main ssmixlinux32armv7l
 ```
 
+* linux arm64 v8 (armv8l)架构
+
+```shell
+bash <(curl -s -L https://raw.githubusercontent.com/FxPool/SSLMIX/main/install_zh.sh) https://raw.githubusercontent.com/FxPool/SSLMIX/main ssmixlinux64armv8l
+```
+
 ### 自定义下载（当github无法连接时你可以把执行程序和脚本下载到你服务器上实现国内的安装）
 - 将[安装脚本]下载然后上传到你的服务器上
 - 将[安装包-amd]或[安装包-arm]下载然后上传到你的服务器上
