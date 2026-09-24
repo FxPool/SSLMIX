@@ -3,6 +3,9 @@
 [安装包-arm]:https://github.com/FxPool/SSLMIX/raw/main/ssmixlinux32armv7l.tar.gz
 [无界面-安装包-amd]:https://github.com/FxPool/SSLMIX/raw/main/noweb/ssmixlinux.tar.gz
 [无界面-安装包-arm]:https://github.com/FxPool/SSLMIX/raw/main/noweb/ssmixlinux32armv7l.tar.gz
+
+[小白中文教程](https://github.com/FxPool/SSLMIX/raw/main/instructions.md)
+
 ##  手动下载安装(需要自己研究开机启动的方式)
 - 需要后台启动时执行 `setsid ./程序名 &` 如果`setsid`不行可以使用 `nohup ./程序名 > /dev/null 2>&1 &`
 - 不清楚CPU架构的，首先使用amd64架构不行在尝试arm32架构
@@ -635,5 +638,4 @@ crontab -e
 
 ---
 
-想了解技术细节（协议、加密算法、源码结构），看 [sslmixsource 项目的隧道加密教程](https://github.com/FxPool/sslmixsource/blob/main/隧道加密教程.md)。
 
